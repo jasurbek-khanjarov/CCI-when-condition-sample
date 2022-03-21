@@ -1,0 +1,77 @@
+version: 2.1
+
+jobs:
+  build_1:
+    docker:
+      - image: 'cing/base:2022.03'
+    steps:
+      - checkout
+      - run: echo "Hello World!"
+  build_2:
+    docker:
+      - image: 'cing/base:2022.03'
+    steps:
+      - checkout
+      - run: echo "Hello World!"    
+  build_3:
+    docker:
+      - image: 'cing/base:2022.03'
+    steps:
+      - checkout
+      - run: echo "Hello World!"
+  build_4:
+    docker:
+      - image: 'cing/base:2022.03'
+    steps:
+      - checkout
+      - run: echo "Hello World!"
+  build_5:
+    docker:
+      - image: 'cing/base:2022.03'
+    steps:
+      - checkout
+      - run: echo "Hello World!"    
+  build_6:
+    docker:
+      - image: 'cing/base:2022.03'
+    steps:
+      - checkout
+      - run: echo "Hello World!"
+  deploy_1:
+    docker:
+      - image: 'cing/base:2022.03'
+    steps:
+      - checkout
+      - run: echo "Hello World!"
+  deploy_2:
+    docker:
+      - image: 'cing/base:2022.03'
+    steps:
+      - checkout
+      - run: echo "Hello World!"    
+  deploy_3:
+    docker:
+      - image: 'cing/base:2022.03'
+    steps:
+      - checkout
+      - run: echo "Hello World!"
+      
+workflows:
+  stg-jobs:
+    when:
+      equal: [ staging, << pipeline.git.branch >> ]
+    jobs:
+      - build_1
+      - build_2
+      - build_3
+      - build_4
+      - build_5
+      - build_6
+  prod-jobs:
+    when:
+      equal: [ main, << pipeline.git.branch >> ]
+    jobs:
+      - deploy_1
+      - deploy_2
+      - deploy_3
+      
