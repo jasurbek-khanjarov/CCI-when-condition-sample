@@ -59,7 +59,7 @@ jobs:
 workflows:
   stg-jobs:
     when:
-      equal: [ staging, << pipeline.git.branch >> ]
+      equal: [ tag-staging, << pipeline.git.tag >> ]
     jobs:
       - build_1
       - build_2
@@ -69,7 +69,7 @@ workflows:
       - build_6
   prod-jobs:
     when:
-      equal: [ main, << pipeline.git.branch >> ]
+      equal: [ tag-main, << pipeline.git.tag >> ]
     jobs:
       - deploy_1
       - deploy_2
